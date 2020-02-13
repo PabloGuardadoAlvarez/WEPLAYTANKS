@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{08EA5224-9280-4B63-6407-3654B7297E70}</ProjectGuid>
+    <ProjectGuid>{F003AFFB-96B5-EDDF-5D44-69B22AF9018D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -66,55 +66,55 @@
     <Compile Include="Assets\Shared\Ramps\Editor\RampAssetEditor.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -309,7 +309,7 @@
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>/Volumes/SSD Pablo/Ingenieria/Unity/WEPLAYTANKS/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -668,7 +668,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{9AE5FEA2-54B5-5056-5B48-F6BE680A10FB}</Project>
+      <Project>{AA090ADA-3F46-227E-4885-C401E7354253}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

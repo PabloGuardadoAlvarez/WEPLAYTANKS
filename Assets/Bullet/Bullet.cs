@@ -39,21 +39,17 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.tag == "portalO" && canTp)
         {
-            Vector3 _wallNormal = collision.contacts[0].normal;
-            var m_dir = Vector3.Reflect(rb.transform.forward, _wallNormal).normalized;
-            transform.eulerAngles = m_dir;
             gameObject.transform.position = bluePortal.transform.position;
-            rb.AddForce(gameObject.transform.forward * 300f);
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.z,0,0);
             canTp = false;
 
         }
         else if (collision.gameObject.tag == "portalB" && canTp)
         {
-            Vector3 _wallNormal = collision.contacts[0].normal;
-            var m_dir = Vector3.Reflect(rb.transform.forward, _wallNormal).normalized;
-            transform.eulerAngles = m_dir;
             gameObject.transform.position = orangePortal.transform.position;
-            rb.AddForce(gameObject.transform.forward * 300f);
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.z, 0, 0);
             canTp = false;
 
         }

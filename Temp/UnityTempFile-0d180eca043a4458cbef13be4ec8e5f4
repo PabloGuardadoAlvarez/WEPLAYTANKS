@@ -1,12 +1,11 @@
 /target:library
 /nowarn:0169
-/out:"Temp/Assembly-CSharp-Editor.dll"
+/out:"Temp/Assembly-CSharp.dll"
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:"Library/ScriptAssemblies/Assembly-CSharp.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -68,8 +67,6 @@
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEditor.dll"
-/reference:"Library/ScriptAssemblies/UnityEditor.TestRunner.dll"
-/reference:"Library/ScriptAssemblies/UnityEngine.TestRunner.dll"
 /reference:"Library/ScriptAssemblies/Unity.Timeline.Editor.dll"
 /reference:"Library/ScriptAssemblies/Unity.ProGrids.dll"
 /reference:"Library/ScriptAssemblies/Unity.VSCode.Editor.dll"
@@ -85,12 +82,6 @@
 /reference:"Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll"
 /reference:"Library/ScriptAssemblies/Unity.TextMeshPro.dll"
 /reference:"Library/ScriptAssemblies/UnityEditor.UI.dll"
-/reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll"
-/reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll"
-/reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
-/reference:"/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
-/reference:"/Volumes/SSD Pablo/Ingenieria/Unity/We play Tanks/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -284,7 +275,7 @@
 /define:ENABLE_SPATIALTRACKING
 /define:ENABLE_WEBSOCKET_HOST
 /define:ENABLE_MONO
-/define:NET_4_6
+/define:NET_STANDARD_2_0
 /define:ENABLE_PROFILER
 /define:DEBUG
 /define:TRACE
@@ -308,5 +299,24 @@
 /define:UNITY_POST_PROCESSING_STACK_V2
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets/Shared/Ramps/Editor/RampAssetEditor.cs"
-"Assets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs"
+"Assets/Bullet/Bullet.cs"
+"Assets/EffectExamples/Misc Effects/Scripts/SpawnEffect.cs"
+"Assets/Enemies/EnemyAim.cs"
+"Assets/Enemies/EnemyController.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Demo/Sample Scripts/ShakeByDistance.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Demo/Sample Scripts/ShakeOnKeyPress.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Demo/Sample Scripts/ShakeOnTrigger.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Demo/ShakeDemo.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Scripts/CameraShakeInstance.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Scripts/CameraShakePresets.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Scripts/CameraShaker.cs"
+"Assets/EZ-Camera-Shake-Unity-master/Assets/EZ Camera Shake/Scripts/Utilities/CameraUtilities.cs"
+"Assets/Player/PlayerAim.cs"
+"Assets/Player/PlayerController.cs"
+"Assets/Shared/Ramps/Runtime/RampAsset.cs"
+"Assets/Shared/Scripts/AdjustTimeScale.cs"
+"Assets/Shared/Scripts/ProximityActivate.cs"
+"Assets/Shared/Scripts/SimpleCameraController.cs"
+"Assets/Shared/Scripts/SimpleCharacterMotor.cs"
+"Assets/Trace/Trace.cs"
+"Assets/TutorialInfo/Scripts/Readme.cs"
