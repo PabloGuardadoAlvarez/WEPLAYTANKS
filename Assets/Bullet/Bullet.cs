@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject trace,bluePortal,orangePortal;
+    public GameObject trace;
     private Rigidbody rb;
     private bool canTp;
 
@@ -37,22 +37,5 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "portalO" && canTp)
-        {
-            gameObject.transform.position = bluePortal.transform.position;
-            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.z,0,0);
-            canTp = false;
-
-        }
-        else if (collision.gameObject.tag == "portalB" && canTp)
-        {
-            gameObject.transform.position = orangePortal.transform.position;
-            GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-            GetComponent<Rigidbody>().velocity = new Vector3(GetComponent<Rigidbody>().velocity.z, 0, 0);
-            canTp = false;
-
-        }
-
     }
 }
