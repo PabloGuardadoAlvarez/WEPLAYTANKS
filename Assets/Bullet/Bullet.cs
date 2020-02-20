@@ -6,17 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public GameObject trace;
     private Rigidbody rb;
-    private bool canTp;
+    private int bounceCounter = 0;
+    public int maxBounces;
+    public GameObject explosionEffect;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        canTp = true;
     }
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3);
         StartCoroutine("instanciarTrace");
     }
 
@@ -37,5 +37,19 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            bounceCounter++;
+            if (bounceCounter > maxBounces) {
+
+                var explosioneff = Instantiate(explosionEffect);
+                explosioneff.transform.position = GetComponent<Transform>().position;
+                Destroy(gameObject);
+                Destroy(explosioneff, 1.5f);
+            }
+        }
+
+
     }
 }

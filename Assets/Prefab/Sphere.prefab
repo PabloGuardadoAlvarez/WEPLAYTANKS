@@ -123,3 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trace: {fileID: 1835127498850805970, guid: a64cd9bd7b7d647398458d397c374753, type: 3}
+  maxBounces: 1
+  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}

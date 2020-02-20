@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bomb;
     public float speed = 3, rotationSpeed = 90;
     protected Rigidbody _rb;
     public LayerMask mouseMask;
@@ -25,5 +26,10 @@ public class PlayerController : MonoBehaviour
         // Mi vector forward apunte al vector de movimiento
         var mov = new Vector3(h, 0, v).normalized;
         _rb.velocity = mov * speed + Vector3.up * _rb.velocity.y;
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            bomb.transform.position = GetComponent<Transform>().transform.position;
+            Instantiate(bomb);
+        }
     }
 }

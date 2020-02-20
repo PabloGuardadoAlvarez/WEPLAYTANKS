@@ -220,6 +220,8 @@ MonoBehaviour:
   totalHealth: 3
   actualHealth: 0
   healthBar: {fileID: 6869967576522101555}
+  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+    type: 3}
 --- !u!1 &6869967576522101553
 GameObject:
   m_ObjectHideFlags: 0

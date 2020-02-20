@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public float totalHealth, actualHealth;
     public Image healthBar;
+    public GameObject explosionEffect;
 
     private void Awake()
     {
@@ -22,7 +23,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (actualHealth <= 0) {
+            var explosioneff = Instantiate(explosionEffect);
+            explosioneff.transform.position = GetComponent<Transform>().position;
             Destroy(gameObject);
+            Destroy(explosioneff, 1.5f);
         }
     }
 
