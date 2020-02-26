@@ -52,7 +52,10 @@ public class Perishable : MonoBehaviour
             var explosioneff = Instantiate(explosionEffect);
             explosioneff.transform.position = GetComponent<Transform>().position;
             Destroy(gameObject);
-            Destroy(explosioneff, destroyEffectDuration);
+            if (destroyEffectDuration > 0)
+            {
+                Destroy(explosioneff, destroyEffectDuration);
+            }
             isDeath = true;
         }
         return isDeath;

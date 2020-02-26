@@ -56,7 +56,6 @@ public class Detonator : MonoBehaviour
             {
                 StartCoroutine(bombBlink());
                 StartCoroutine(explode());
-
                 var explosionRadius = Instantiate(explosionIndicator);
                 explosionRadius.transform.position = transform.position;
                 explosionRadius.transform.localScale = explosionRadius.transform.localScale * detonationRadius;
