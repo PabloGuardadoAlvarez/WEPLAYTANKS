@@ -74,6 +74,7 @@
     <Compile Include="Assets\EZ-Camera-Shake-Unity-master\Assets\EZ Camera Shake\Scripts\CameraShaker.cs" />
     <Compile Include="Assets\EZ-Camera-Shake-Unity-master\Assets\EZ Camera Shake\Scripts\Utilities\CameraUtilities.cs" />
     <Compile Include="Assets\Scripts\Bomber.cs" />
+    <Compile Include="Assets\Scripts\Detonator.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Locomotor.cs" />
     <Compile Include="Assets\Scripts\Perishable.cs" />

@@ -18,7 +18,8 @@ public class Bomb : MonoBehaviour
     void Update()
     {
         Collider[] hitColliders = Physics.OverlapSphere(GetComponent<Transform>().position, 5f);
-        for (int i = 0; i < hitColliders.Length; i++) {
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
             if (hitColliders[i].gameObject.tag == "enemy")
             {
                 StartCoroutine(bombBlink());

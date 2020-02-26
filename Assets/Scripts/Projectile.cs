@@ -46,7 +46,10 @@ public class Projectile : MonoBehaviour
         Perishable otherPerishable = collision.gameObject.GetComponent<Perishable>();
         if (otherPerishable)
         {
-            otherPerishable.doDamage(damage);
+            if(otherPerishable.name == "Player")
+                otherPerishable.doDamage(damage, "self");
+            else
+                otherPerishable.doDamage(damage, "bullet");
             if(shooter)
                 shooter.GetComponent<Turret>().addBullet();
             thisPerishable.killEntity();

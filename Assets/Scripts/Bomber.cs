@@ -21,7 +21,8 @@ public class Bomber : MonoBehaviour
     public void SetBomb()
     {
         var position = GetComponent<Transform>().transform.position;
-        bomb.transform.position = new Vector3(position.x, height, position.z);
-        Instantiate(bomb);
+        var bombInstance = Instantiate(bomb);
+        bombInstance.transform.position = new Vector3(position.x, height, position.z);
+        bombInstance.GetComponent<Detonator>().SetBomber(this.gameObject);
     }
 }

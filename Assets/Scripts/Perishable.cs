@@ -7,14 +7,19 @@ public class Perishable : MonoBehaviour
     public int maxHealth = 1;
     public GameObject explosionEffect;
     public float destroyEffectDuration = 1.5f;
-    public bool dieOverTime = false;
-    public float lifeTime = .5f;
+    [SerializeField]
+    private bool dieOverTime = false;
+    private float lifeTime = .5f;
+    private string receivedDamageType;
     int health;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (!dieOverTime)
+        {
             health = maxHealth;
+            receivedDamageType = null;
+        }
         else
             Destroy(gameObject, lifeTime);
     }
@@ -25,9 +30,10 @@ public class Perishable : MonoBehaviour
         
     }
 
-    public int doDamage(int damage)
+    public int doDamage(int damage, string damageType)
     {
         health -= damage;
+        receivedDamageType = damageType;
         isDeath();
         return health;
     }
@@ -50,5 +56,17 @@ public class Perishable : MonoBehaviour
             isDeath = true;
         }
         return isDeath;
+    }
+
+    public void setLifeTime(float value)
+    {
+        lifeTime = value;
+        if(dieOverTime)
+            Destroy(gameObject, lifeTime);
+    }
+    public void setDieOverTime(bool dieOverTime)
+    {
+        this.dieOverTime = dieOverTime;
+        setLifeTime(lifeTime);
     }
 }
