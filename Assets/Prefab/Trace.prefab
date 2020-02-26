@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 343782564801662768}
   - component: {fileID: 8241474195650208956}
   - component: {fileID: 1103191674266815597}
-  - component: {fileID: 4399527614474105996}
+  - component: {fileID: 7720352184850714138}
   m_Layer: 0
   m_Name: Trace
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4399527614474105996
+--- !u!114 &7720352184850714138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,6 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835127498850805970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03ba91bfdccd348d3a16370559355817, type: 3}
+  m_Script: {fileID: 11500000, guid: faf4dde07c2888d4c852cf478be590fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 1
+  explosionEffect: {fileID: 0}
+  destroyEffectDuration: 1.5
+  dieOverTime: 1
+  lifeTime: 0.5

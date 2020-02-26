@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 877343238706030688}
   - component: {fileID: 2042205548283417191}
   - component: {fileID: -1827365068468474949}
-  - component: {fileID: 7519520716182468927}
+  - component: {fileID: 4667472719323244007}
+  - component: {fileID: -6683736727806549046}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: bullet
@@ -28,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891625111687837372}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: -5.300001, y: 0.99, z: 16.622997}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!33 &7602502052488618380
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &7519520716182468927
+--- !u!114 &4667472719323244007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +120,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1891625111687837372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8939cde9a22604bdb8cd8be69a76f93f, type: 3}
+  m_Script: {fileID: 11500000, guid: c5502454022b8774e83eeb67b283f6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasTrace: 1
   trace: {fileID: 1835127498850805970, guid: a64cd9bd7b7d647398458d397c374753, type: 3}
-  maxBounces: 1
+  damage: 1
+  maxBounce: 1
+--- !u!114 &-6683736727806549046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891625111687837372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf4dde07c2888d4c852cf478be590fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}

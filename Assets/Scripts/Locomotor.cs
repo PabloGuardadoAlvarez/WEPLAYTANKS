@@ -8,7 +8,8 @@ public class Locomotor : MonoBehaviour
     [SerializeField]
     private float speed = 0;
     protected Transform transform;
-    private float activationThreshold = 2f;
+    [SerializeField]
+    private bool canRotate = true;
     protected Rigidbody _rb;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Locomotor : MonoBehaviour
     void Update()
     {
     }
+
     public void MoveTo(Vector3 direction)
     {
         var directionNormalized = direction.normalized;
@@ -33,44 +35,25 @@ public class Locomotor : MonoBehaviour
         ApplyLocomotion(directionNormalized);
     }
 
-    private Quaternion TransformToQuaternion(Vector3 direction)
-    {
-        Quaternion rotation = new Quaternion(0,0,0,1);
-        float z = direction.z;
-        float x = direction.x;
-        switch (z)
-        {
-            case 1:
-                rotation.y = 0;
-                break;
-            case -1:
-                rotation.y = 180;
-                break;
-        }
-        switch (x)
-        {
-            case 1:
-                rotation.y = 90;
-                break;
-            case -1:
-                rotation.y = -90;
-                break;
-        }
-
-        return rotation;
-    }
-
     private void ApplyLocomotion(Vector3 direction)
     {
-        Vector3 targetDir = direction;
-        float rotationAngle = Vector3.Angle(targetDir, Vector3.forward);
-        Debug.Log(transform.rotation.eulerAngles + " : " + rotationAngle + " : " + direction);
+        float rotationAngle = Vector3.Angle(direction, Vector3.forward);
+        Vector3 cross = Vector3.Cross(direction, Vector3.forward);
+
+        if (cross.y > 0) rotationAngle = 360 - rotationAngle;
+        Vector3 inverseDirection = new Vector3(direction.x * -1, 0, direction.z * -1);
+        if (transform.forward == inverseDirection || transform.forward == direction)
+            canRotate = false;
+        else
+            canRotate = true;
+
+        //Debug.Log(transform.rotation.eulerAngles + " : " + direction + " : " + rotationAngle);
+        //Debug.Log(transform.forward + " : " + direction + " : " + rotationAngle);
         if (direction.magnitude > 0)
         {
-            transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), Time.deltaTime * rotationSpeed);
-
-            if (transform.rotation.eulerAngles.y >= rotationAngle - activationThreshold 
-                && transform.rotation.eulerAngles.y <= rotationAngle + activationThreshold)
+            if(canRotate)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), rotationSpeed);
+            else
             {
                 if (direction.magnitude > 0 && speed < maxSpeed)
                     speed += acceleration;
@@ -81,5 +64,6 @@ public class Locomotor : MonoBehaviour
                 _rb.velocity = direction * speed;
             }
         }
+
     }
 }

@@ -137,11 +137,11 @@ GameObject:
   - component: {fileID: 555979884161185857}
   - component: {fileID: 2512266340399970663}
   - component: {fileID: 8581665787748123655}
-  - component: {fileID: 3723234053062278262}
   - component: {fileID: 4240150972218099768}
+  - component: {fileID: 357462955495769822}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
+  m_Name: Tank
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 555979884161185859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.65, y: 0.5, z: -4.31}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.75085}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 555979884197613554}
   m_Father: {fileID: 0}
@@ -248,19 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f1468d51b78a44ca6b6725c6f1e540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomb: {fileID: 0}
---- !u!114 &3723234053062278262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555979884161185859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad91ee27a174cc4d8bd25341813b4d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  bomb: {fileID: 4012385589197016949, guid: d013a3ae50ff943e38ce0352cc240e50, type: 3}
 --- !u!114 &4240150972218099768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,10 +261,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1576d18fc2846a4284e217d1cc5cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0
-  maxSpeed: 0
-  rotationSpeed: 1
+  acceleration: 1.5
+  maxSpeed: 3
+  rotationSpeed: 2
   speed: 0
+  canRotate: 1
+--- !u!114 &357462955495769822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555979884161185859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf4dde07c2888d4c852cf478be590fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
 --- !u!1 &555979884197613555
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +293,7 @@ GameObject:
   - component: {fileID: 555979884197613559}
   - component: {fileID: 555979884197613552}
   - component: {fileID: 555979884197613553}
-  - component: {fileID: 555979884197613558}
+  - component: {fileID: 6925290142781811103}
   m_Layer: 0
   m_Name: Head
   m_TagString: player
@@ -305,8 +309,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555979884197613555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56999993, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.53272957}
+  m_LocalPosition: {x: 0, y: 0.57, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 555979883415766076}
   m_Father: {fileID: 555979884161185862}
@@ -371,7 +375,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &555979884197613558
+--- !u!114 &6925290142781811103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -380,16 +384,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 555979884197613555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd88f54dbb8b647b29dce2c7ca1a7e02, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1d83517f201f840989d9e1e96659b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1891625111687837372, guid: b5c7e0640288744ee9dc92e5fb566f04, type: 3}
-  puntaPistola: {fileID: 555979884093723510}
-  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
-    type: 3}
   numBullets: 3
   bulletsLeft: 0
-  bullets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  bulletSpeed: 375
+  bullet: {fileID: 1891625111687837372, guid: b5c7e0640288744ee9dc92e5fb566f04, type: 3}
+  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
+  gunMuzzle: {fileID: 555979884093723510}
