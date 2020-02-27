@@ -264,6 +264,7 @@ MonoBehaviour:
   acceleration: 1.5
   maxSpeed: 3
   rotationSpeed: 2
+  rotationThreshold: 5
   speed: 0
   canRotate: 1
 --- !u!114 &357462955495769822

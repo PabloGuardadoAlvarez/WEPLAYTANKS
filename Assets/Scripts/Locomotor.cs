@@ -5,6 +5,7 @@ using UnityEngine;
 public class Locomotor : MonoBehaviour
 {
     public float acceleration, maxSpeed, rotationSpeed = 1;
+    public float rotationThreshold = 1f;
     [SerializeField]
     private float speed = 0;
     protected Transform transform;
@@ -31,7 +32,8 @@ public class Locomotor : MonoBehaviour
 
     public void MoveTo(float x, float z)
     {
-        var directionNormalized = new Vector3(x, 0, z).normalized;
+        var direction = new Vector3(x, 0, z);
+        var directionNormalized = direction.normalized;
         ApplyLocomotion(directionNormalized);
     }
 
@@ -41,14 +43,16 @@ public class Locomotor : MonoBehaviour
         Vector3 cross = Vector3.Cross(direction, Vector3.forward);
 
         if (cross.y > 0) rotationAngle = 360 - rotationAngle;
+
         Vector3 inverseDirection = new Vector3(direction.x * -1, 0, direction.z * -1);
-        if (transform.forward == inverseDirection || transform.forward == direction)
+        float angleChecker = Vector3.Angle(direction, transform.forward);
+        Debug.Log(transform.forward + " : " + direction + " : " + rotationThreshold);
+        if ((angleChecker >= 180 - rotationThreshold && angleChecker <= 180 + rotationThreshold) || 
+            (angleChecker >= 0 - rotationThreshold && angleChecker <= 0 + rotationThreshold))
             canRotate = false;
         else
             canRotate = true;
-
-        //Debug.Log(transform.rotation.eulerAngles + " : " + direction + " : " + rotationAngle);
-        //Debug.Log(transform.forward + " : " + direction + " : " + rotationAngle);
+        
         if (direction.magnitude > 0)
         {
             if(canRotate)
