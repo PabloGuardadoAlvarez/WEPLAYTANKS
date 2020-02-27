@@ -71,4 +71,8 @@ public class Turret : MonoBehaviour
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z), Vector3.up);
         }
     }
+
+    public void aimTurret(Vector3 aim) {
+        transform.LookAt(new Vector3(aim.x, transform.position.y, aim.z), Vector3.up);
+    }
 }
