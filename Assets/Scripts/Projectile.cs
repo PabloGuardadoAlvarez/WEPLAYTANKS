@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody rb;
     public bool hasTrace = true;
+    public float traceScale = 0.5f;
     public GameObject trace;
     public int damage = 1;
     public int maxBounce = 1;
@@ -20,24 +21,20 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        if(hasTrace)
-            StartCoroutine("instanciarTrace");
+        if (hasTrace)
+        {
+            trace = Instantiate(trace);
+            trace.transform.position = transform.position;
+            trace.transform.localScale = trace.transform.localScale * traceScale;
+            trace.GetComponent<Perishable>().setTarget(gameObject);
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    IEnumerator instanciarTrace()
-    {
-        while (true)
-        {
-            var actualtrace = Instantiate(trace);
-            actualtrace.transform.position = gameObject.transform.position;
-            yield return new WaitForSeconds(.05f);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,6 +49,7 @@ public class Projectile : MonoBehaviour
                 otherPerishable.doDamage(damage, "bullet");
             if(shooter)
                 shooter.GetComponent<Turret>().addBullet();
+            transform.DetachChildren();
             thisPerishable.killEntity();
 
         }
@@ -61,6 +59,7 @@ public class Projectile : MonoBehaviour
                 bounceCount++;
             else
             {
+                transform.DetachChildren();
                 thisPerishable.killEntity();
                 if(shooter)
                     shooter.GetComponent<Turret>().addBullet();

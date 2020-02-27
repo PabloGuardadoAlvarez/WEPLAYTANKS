@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasTrace: 1
+  traceScale: 1
   trace: {fileID: 1835127498850805970, guid: a64cd9bd7b7d647398458d397c374753, type: 3}
   damage: 1
   maxBounce: 1
@@ -142,3 +143,5 @@ MonoBehaviour:
   maxHealth: 1
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
+  destroyEffectDuration: 1.5
+  dieOverTime: 0

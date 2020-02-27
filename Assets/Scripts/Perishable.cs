@@ -11,10 +11,14 @@ public class Perishable : MonoBehaviour
     private bool dieOverTime = false;
     private float lifeTime = .5f;
     private string receivedDamageType;
+    private bool isTrace = false;
+    private GameObject target;
     int health;
     // Start is called before the first frame update
     void Awake()
     {
+        if (GetComponent<ParticleSystem>())
+            isTrace = true;
         if (!dieOverTime)
         {
             health = maxHealth;
@@ -28,6 +32,20 @@ public class Perishable : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void LateUpdate()
+    {
+        if (isTrace)
+        {
+            if(target)
+                transform.position = target.transform.position;
+            else
+            {
+                var emitter = GetComponent<ParticleSystem>();
+                emitter.Stop();
+            }
+        }
     }
 
     public int doDamage(int damage, string damageType)
@@ -72,4 +90,7 @@ public class Perishable : MonoBehaviour
         this.dieOverTime = dieOverTime;
         setLifeTime(lifeTime);
     }
+
+    public GameObject getTarget() { return target; }
+    public void setTarget(GameObject target) { this.target = target; }
 }
