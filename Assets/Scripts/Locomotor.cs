@@ -52,22 +52,18 @@ public class Locomotor : MonoBehaviour
             canRotate = false;
         else
             canRotate = true;
-        
-        if (direction.magnitude > 0)
-        {
-            if(canRotate)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), rotationSpeed);
-            else
-            {
-                if (direction.magnitude > 0 && speed < maxSpeed)
-                    speed += acceleration;
-                else if (direction.magnitude == 0 && speed > 0)
-                    speed -= acceleration;
-                else if (speed < 0)
-                    speed = 0;
-                _rb.velocity = direction * speed;
-            }
-        }
 
+        if(canRotate)
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), rotationSpeed);
+        else
+        {
+            if (direction.magnitude > 0 && speed < maxSpeed)
+                speed += acceleration * Time.deltaTime;
+            else if (direction.magnitude < 1 && speed > 0)
+                speed -= acceleration;
+            else if (speed < 0)
+                speed = 0;
+            _rb.velocity = direction * speed;
+        }
     }
 }

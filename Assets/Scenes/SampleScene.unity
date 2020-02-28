@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17370789, g: 0.21717651, b: 0.29930508, a: 1}
+  m_IndirectSpecularColor: {r: 0.17370783, g: 0.21717623, b: 0.29930478, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1293,15 +1293,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4240150972218099768, guid: db3ed04fac23117458f930fcbb596d32,
+        type: 3}
+      propertyPath: rotationThreshold
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 357462955495769822, guid: db3ed04fac23117458f930fcbb596d32,
         type: 3}
       propertyPath: destroyEffectDuration
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240150972218099768, guid: db3ed04fac23117458f930fcbb596d32,
-        type: 3}
-      propertyPath: rotationThreshold
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db3ed04fac23117458f930fcbb596d32, type: 3}
@@ -1779,6 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad91ee27a174cc4d8bd25341813b4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pcControl: 1
   moveJoystick: {fileID: 505438020}
   aimJoystick: {fileID: 2014562580}
 --- !u!1 &1646772833 stripped
@@ -1950,26 +1951,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena
       objectReference: {fileID: 0}
-    - target: {fileID: 2502203975881118265, guid: 193fb57d17eb34cf2ad0a289e5289309,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 4695666576454475813, guid: 193fb57d17eb34cf2ad0a289e5289309,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469484624682501897, guid: 193fb57d17eb34cf2ad0a289e5289309,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
-    - target: {fileID: -492420421572216379, guid: 193fb57d17eb34cf2ad0a289e5289309,
-        type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
     - target: {fileID: -7462036371361415008, guid: 193fb57d17eb34cf2ad0a289e5289309,
         type: 3}
       propertyPath: m_TagString
@@ -2039,6 +2020,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -492420421572216379, guid: 193fb57d17eb34cf2ad0a289e5289309,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502203975881118265, guid: 193fb57d17eb34cf2ad0a289e5289309,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695666576454475813, guid: 193fb57d17eb34cf2ad0a289e5289309,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469484624682501897, guid: 193fb57d17eb34cf2ad0a289e5289309,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 193fb57d17eb34cf2ad0a289e5289309, type: 3}
