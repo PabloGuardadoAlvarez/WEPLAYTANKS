@@ -45,8 +45,9 @@ public class Locomotor : MonoBehaviour
         if (cross.y > 0) rotationAngle = 360 - rotationAngle;
 
         Vector3 inverseDirection = new Vector3(direction.x * -1, 0, direction.z * -1);
+
         float angleChecker = Vector3.Angle(direction, transform.forward);
-        Debug.Log(transform.forward + " : " + direction + " : " + rotationThreshold);
+        //Debug.Log(transform.forward + " : " + direction + " : " + rotationThreshold);
         if ((angleChecker >= 180 - rotationThreshold && angleChecker <= 180 + rotationThreshold) || 
             (angleChecker >= 0 - rotationThreshold && angleChecker <= 0 + rotationThreshold))
             canRotate = false;

@@ -96,8 +96,8 @@
     <Compile Include="Assets\ExternalAssets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\ExternalAssets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Bomber.cs" />
+    <Compile Include="Assets\Scripts\CanPathFind.cs" />
     <Compile Include="Assets\Scripts\Detonator.cs" />
-    <Compile Include="Assets\Scripts\IA.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Locomotor.cs" />
     <Compile Include="Assets\Scripts\Perishable.cs" />
