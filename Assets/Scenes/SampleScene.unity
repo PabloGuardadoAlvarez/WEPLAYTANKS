@@ -990,7 +990,12 @@ PrefabInstance:
     - target: {fileID: 4240150972218099768, guid: db3ed04fac23117458f930fcbb596d32,
         type: 3}
       propertyPath: rotationThreshold
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240150972218099768, guid: db3ed04fac23117458f930fcbb596d32,
+        type: 3}
+      propertyPath: acceleration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 357462955495769822, guid: db3ed04fac23117458f930fcbb596d32,
         type: 3}
