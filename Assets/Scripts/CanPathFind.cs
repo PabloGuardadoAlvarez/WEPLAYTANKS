@@ -9,35 +9,46 @@ public class CanPathFind : MonoBehaviour
 
     public GameObject player;
     private NavMeshPath path;
-    private float elapsed = 0.0f;
     private int count;
     private Vector3 vectorFinal;
+    public bool canContinue;
     // Start is called before the first frame update
 
     void Start()
     {
         path = new NavMeshPath();
-        elapsed = 0.0f;
         count = 0;
+        changeStateToTrue();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
-        vectorFinal = path.corners[count] - transform.position;
-
-        if (path.corners.Length > 0)
+        if (canContinue)
         {
-            
-            gameObject.GetComponent<Locomotor>().MoveTo(new Vector3(vectorFinal.x,0,vectorFinal.z));
+            NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+            vectorFinal = path.corners[count] - transform.position;
 
-            if (transform.position.x == path.corners[count].x && transform.position.z == path.corners[count].z)
+            if (path.corners.Length > 0)
             {
-                count++;
+
+                gameObject.GetComponent<Locomotor>().MoveTo(new Vector3(vectorFinal.x, 0, vectorFinal.z));
+
+                if (transform.position.x == path.corners[count].x && transform.position.z == path.corners[count].z)
+                {
+                    count++;
+                }
             }
         }
 
+    }
+
+    public void changeStateToFalse() {
+        canContinue = false;
+    }
+
+    public void changeStateToTrue()
+    {
+        canContinue = true;
     }
 }
