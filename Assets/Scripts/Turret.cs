@@ -10,11 +10,13 @@ public class Turret : MonoBehaviour
     public GameObject bullet;
     public GameObject explosionEffect;
     public GameObject gunMuzzle;
-    
+    public GameObject[] bullets;
+
     // Start is called before the first frame update
     void Start()
     {
         bulletsLeft = numBullets;
+        bullets = new GameObject[5];
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class Turret : MonoBehaviour
 
             //Destruyo detonación por disparo
             Destroy(explosion, 1);
+            Debug.Log(bulletsLeft);
             success = true;
         }
         return success;
@@ -54,6 +57,7 @@ public class Turret : MonoBehaviour
     {
         bulletsLeft++;
     }
+    
 
     public bool hasBullets()
     {
@@ -62,7 +66,7 @@ public class Turret : MonoBehaviour
             hasBullets = true;
         return hasBullets;
     }
-    
+
     public void rotateTurret(Ray ray)
     {
         RaycastHit hit;

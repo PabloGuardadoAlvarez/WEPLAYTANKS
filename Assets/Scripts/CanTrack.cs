@@ -16,6 +16,7 @@ public class CanTrack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player !=null)
         transform.LookAt(player.transform.position);
         RaycastHit hit;
 

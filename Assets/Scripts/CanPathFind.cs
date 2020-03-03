@@ -24,7 +24,7 @@ public class CanPathFind : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canContinue)
+        if (canContinue && player !=null)
         {
             NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
             vectorFinal = path.corners[count] - transform.position;

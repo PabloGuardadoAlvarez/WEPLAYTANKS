@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -61,8 +61,9 @@ public class Projectile : MonoBehaviour
             {
                 transform.DetachChildren();
                 thisPerishable.killEntity();
-                if(shooter)
+                if (shooter) {
                     shooter.GetComponent<Turret>().addBullet();
+                }
             }
         }
     }
