@@ -5,16 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject bullet;
-    public GameObject[] tanks;
+    public Locomotor[] tanks;
+    public GameObject[] players;
     // Start is called before the first frame update
     void Start()
     {
+        tanks = GameObject.FindObjectsOfType<Locomotor>();
+        players = GameObject.FindGameObjectsWithTag("Player");
         for (int i = 0; i < tanks.Length; i++) {
-            for (int j = 0; j < tanks[i].GetComponent<Turret>().bullets.Length; j++)
+            if(tanks[i].gameObject.tag != "Player")
             {
-                Instantiate(bullet);
-                bullet.SetActive(false);
-                tanks[j].GetComponent<Turret>().bullets[i] = bullet;
+                tanks[i].gameObject.GetComponent<CanPathFind>().setPlayers(players);
             }
         }
     }

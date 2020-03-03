@@ -7,7 +7,8 @@ public class InputHandler : MonoBehaviour
     Locomotor locomotor = null;
     Bomber bomber = null;
     private GameObject turret;
-    public bool pcControl;
+    [SerializeField]
+    private bool pcControl;
     public Joystick moveJoystick ,aimJoystick;
     private Vector3 aim;
 
@@ -64,4 +65,6 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
+    public bool getIsPC() { return pcControl; }
+    public void setIsPC(bool pcControl) { this.pcControl = pcControl; }
 }

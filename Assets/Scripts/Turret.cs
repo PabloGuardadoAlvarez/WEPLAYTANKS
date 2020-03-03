@@ -47,7 +47,6 @@ public class Turret : MonoBehaviour
 
             //Destruyo detonación por disparo
             Destroy(explosion, 1);
-            Debug.Log(bulletsLeft);
             success = true;
         }
         return success;
