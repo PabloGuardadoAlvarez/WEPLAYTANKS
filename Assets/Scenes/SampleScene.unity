@@ -212,12 +212,34 @@ Transform:
   m_Father: {fileID: 1524600672}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &20928405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5730018188893589973, guid: 066b5dc0d5e774c2aaa987e45364bd41,
+    type: 3}
+  m_PrefabInstance: {fileID: 5730018188880037440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &20928406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5730018188893589974, guid: 066b5dc0d5e774c2aaa987e45364bd41,
     type: 3}
   m_PrefabInstance: {fileID: 5730018188880037440}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &20928411
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20928405}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &249245513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 555979884197613555, guid: db3ed04fac23117458f930fcbb596d32,
@@ -1153,6 +1175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DWall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730018188893589973, guid: 066b5dc0d5e774c2aaa987e45364bd41,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5730018188893589974, guid: 066b5dc0d5e774c2aaa987e45364bd41,
         type: 3}
@@ -2628,12 +2655,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2062765291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5730018188893589973, guid: 066b5dc0d5e774c2aaa987e45364bd41,
+    type: 3}
+  m_PrefabInstance: {fileID: 927149983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2062765292 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5730018188893589974, guid: 066b5dc0d5e774c2aaa987e45364bd41,
     type: 3}
   m_PrefabInstance: {fileID: 927149983}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &2062765297
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062765291}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &5730018188880037440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2645,6 +2694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5730018188893589973, guid: 066b5dc0d5e774c2aaa987e45364bd41,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5730018188893589974, guid: 066b5dc0d5e774c2aaa987e45364bd41,
         type: 3}
