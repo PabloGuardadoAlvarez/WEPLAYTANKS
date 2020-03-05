@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,9 +43,9 @@ public class Projectile : MonoBehaviour
         Perishable otherPerishable = collision.gameObject.GetComponent<Perishable>();
         if (otherPerishable)
         {
-            if(otherPerishable.name == "Player")
+            if (otherPerishable.name == "Player")
                 otherPerishable.doDamage(damage, "self");
-            else
+            else if(otherPerishable.name !="DWall")
                 otherPerishable.doDamage(damage, "bullet");
             if(shooter)
                 shooter.GetComponent<Turret>().addBullet();
