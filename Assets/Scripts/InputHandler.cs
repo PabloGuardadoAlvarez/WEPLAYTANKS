@@ -59,10 +59,6 @@ public class InputHandler : MonoBehaviour
         {
             aim = new Vector3(aimJoystick.Horizontal, 0, aimJoystick.Vertical) * 10;
             turret.GetComponent<Turret>().aimTurret(aim);
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                turret.GetComponent<Turret>().doShot();
-            }
         }
     }
 }
