@@ -396,3 +396,4 @@ MonoBehaviour:
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
   gunMuzzle: {fileID: 555979884093723510}
+  bullets: []
