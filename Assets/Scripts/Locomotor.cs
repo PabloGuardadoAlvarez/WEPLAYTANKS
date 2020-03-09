@@ -12,11 +12,13 @@ public class Locomotor : MonoBehaviour
     [SerializeField]
     private bool canRotate = true;
     protected Rigidbody _rb;
+    private InputHandler _ih;
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
         _rb = this.GetComponent<Rigidbody>();
+        _ih = this.GetComponent<InputHandler>();
     }
 
     // Update is called once per frame
@@ -27,14 +29,20 @@ public class Locomotor : MonoBehaviour
     public void MoveTo(Vector3 direction)
     {
         var directionNormalized = direction.normalized;
-        ApplyLocomotion(directionNormalized);
+        if(_ih && _ih.getIsPC())
+            ApplyLocomotionPC(directionNormalized);
+        else
+            ApplyLocomotion(directionNormalized);
     }
 
     public void MoveTo(float x, float z)
     {
         var direction = new Vector3(x, 0, z);
         var directionNormalized = direction.normalized;
-        ApplyLocomotion(directionNormalized);
+        if (_ih.getIsPC() && _ih)
+            ApplyLocomotionPC(directionNormalized);
+        else
+            ApplyLocomotion(directionNormalized);
     }
 
     private void ApplyLocomotion(Vector3 direction)
@@ -47,7 +55,6 @@ public class Locomotor : MonoBehaviour
         Vector3 inverseDirection = new Vector3(direction.x * -1, 0, direction.z * -1);
 
         float angleChecker = Vector3.Angle(direction, transform.forward);
-        //Debug.Log(transform.forward + " : " + direction + " : " + rotationThreshold);
         if ((angleChecker >= 180 - rotationThreshold && angleChecker <= 180 + rotationThreshold) || 
             (angleChecker >= 0 - rotationThreshold && angleChecker <= 0 + rotationThreshold))
             canRotate = false;
@@ -59,12 +66,20 @@ public class Locomotor : MonoBehaviour
         else
         {
             if (direction.magnitude > 0 && speed < maxSpeed)
-                speed += acceleration * Time.deltaTime;
+                speed += acceleration;
             else if (direction.magnitude < 1 && speed > 0)
                 speed -= acceleration;
             else if (speed < 0)
                 speed = 0;
             _rb.velocity = direction * speed;
         }
+    }
+    private void ApplyLocomotionPC(Vector3 direction)
+    {
+        Debug.Log(direction);
+        transform.Rotate(new Vector3(0, direction.x, 0) * rotationSpeed);
+        if(direction.z > 0 || direction.z < 0)
+            _rb.velocity = transform.forward * direction.z * acceleration;
+
     }
 }

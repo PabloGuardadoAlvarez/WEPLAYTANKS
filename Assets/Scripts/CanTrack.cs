@@ -5,36 +5,36 @@ using UnityEngine;
 public class CanTrack : MonoBehaviour
 {
 
-    public GameObject player , mySelf;
+    private GameObject target;
+    private Turret turret;
     private bool canShot;
     // Start is called before the first frame update
     void Start()
     {
         canShot = true;
+        turret = GetComponent<Turret>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player !=null)
-        transform.LookAt(player.transform.position);
+        if(target != null)
+            turret.aimTurret(target.transform.position);
         RaycastHit hit;
 
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
-            Debug.Log(hit.collider.tag);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
-            
-            if (hit.collider.gameObject.tag == "player")
+            if (hit.collider.gameObject.tag == target.gameObject.tag)
             {
-                mySelf.GetComponent<CanPathFind>().canContinue = false;
+                gameObject.transform.parent.GetComponent<CanPathFind>().canContinue = false;
                 if (canShot) {
                     StartCoroutine(shot());
                 }
             }
             else {
-                mySelf.GetComponent<CanPathFind>().canContinue = true;
+                gameObject.transform.parent.GetComponent<CanPathFind>().canContinue = true;
                 StopCoroutine(shot());
             }
             
@@ -48,4 +48,7 @@ public class CanTrack : MonoBehaviour
         yield return new WaitForSeconds(2f);
         canShot = true;
     }
+
+    public void setTarget(GameObject target) { this.target = target; }
+    public GameObject getTarget() { return target; }
 }
