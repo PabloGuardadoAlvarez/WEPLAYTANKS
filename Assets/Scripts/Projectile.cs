@@ -44,11 +44,11 @@ public class Projectile : MonoBehaviour
     {
         Perishable thisPerishable = this.GetComponent<Perishable>();
         Perishable otherPerishable = collision.gameObject.GetComponent<Perishable>();
-        if (otherPerishable)
+        if (otherPerishable && otherPerishable.name !="DWall")
         {
             if (otherPerishable.name == "Player")
                 otherPerishable.doDamage(damage, "self");
-            else if(otherPerishable.name !="DWall")
+            else
                 otherPerishable.doDamage(damage, "bullet");
             if(shooter)
                 shooter.GetComponent<Turret>().addBullet();

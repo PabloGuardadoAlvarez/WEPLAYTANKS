@@ -983,7 +983,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.71621895
+          value: 0.47297478
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -991,7 +991,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.6940262
+          time: 0.7947786
           value: 0
           inSlope: 0.1574684
           outSlope: 0.1574684
@@ -4769,4 +4769,6 @@ MonoBehaviour:
   maxHealth: 1
   explosionEffect: {fileID: 0}
   destroyEffectDuration: 1.5
+  heightExplosion: 0
   dieOverTime: 0
+  isExplosion: 0
