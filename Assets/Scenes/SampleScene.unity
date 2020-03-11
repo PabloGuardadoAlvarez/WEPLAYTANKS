@@ -826,6 +826,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 4240150972218099768, guid: db3ed04fac23117458f930fcbb596d32,
         type: 3}
       propertyPath: rotationSpeed
@@ -1106,7 +1107,7 @@ RectTransform:
   - {fileID: 1949889909}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.726001, y: 5.5940003, z: 6.8380003}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

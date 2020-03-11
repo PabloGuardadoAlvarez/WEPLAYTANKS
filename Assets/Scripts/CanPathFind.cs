@@ -23,31 +23,35 @@ public class CanPathFind : MonoBehaviour
         count = 0;
         changeStateToTrue();
         tracking = transform.GetChild(0).gameObject.GetComponent<CanTrack>();
-        players = GameObject.FindGameObjectsWithTag("Player");
-        target = players[0];
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(players.Length > 0)
-            if (target && canContinue)
+        if (target == null)
+        {
+            if (players.Length > 0)
             {
+                target = players[0];
                 tracking.setTarget(target);
-                NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, path);
-                vectorFinal = path.corners[count] - transform.position;
+            }
+        }
+        else if (target != null && canContinue)
+        {
+            NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, path);
+            vectorFinal = path.corners[count] - transform.position;
 
-                if (path.corners.Length > 0)
+            if (path.corners.Length > 0)
+            {
+
+                gameObject.GetComponent<Locomotor>().MoveTo(new Vector3(vectorFinal.x, 0, vectorFinal.z));
+
+                if (transform.position.x == path.corners[count].x && transform.position.z == path.corners[count].z)
                 {
-
-                    gameObject.GetComponent<Locomotor>().MoveTo(new Vector3(vectorFinal.x, 0, vectorFinal.z));
-
-                    if (transform.position.x == path.corners[count].x && transform.position.z == path.corners[count].z)
-                    {
-                        count++;
-                    }
+                    count++;
                 }
             }
+        }
     }
 
     public void changeStateToFalse() {
