@@ -76,7 +76,6 @@ public class Locomotor : MonoBehaviour
     }
     private void ApplyLocomotionPC(Vector3 direction)
     {
-        Debug.Log(direction);
         transform.Rotate(new Vector3(0, direction.x, 0) * rotationSpeed);
         if(direction.z > 0 || direction.z < 0)
             _rb.velocity = transform.forward * direction.z * acceleration;

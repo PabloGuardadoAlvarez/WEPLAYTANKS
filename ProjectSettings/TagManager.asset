@@ -6,11 +6,11 @@ TagManager:
   tags:
   - Shootable
   - Wall
-  - enemy
   - bullet
   - player
   - portalO
   - portalB
+  - Enemy
   layers:
   - Default
   - TransparentFX

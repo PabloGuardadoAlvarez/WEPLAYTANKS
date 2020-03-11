@@ -56,16 +56,27 @@ public class Projectile : MonoBehaviour
         else
         {
             if (bounceCount < maxBounce)
+            {
                 bounceCount++;
+                ApplyBounce(collision);
+            }
             else
             {
                 transform.DetachChildren();
                 thisPerishable.killEntity();
-                if (shooter) {
+                if (shooter)
+                {
                     shooter.GetComponent<Turret>().addBullet();
                 }
             }
         }
+    }
+
+    void ApplyBounce(Collision collider)
+    {
+        Vector3 reflection = Vector3.Reflect(rb.velocity, collider.GetContact(0).normal);
+        Debug.Log("Angle: " + rb.velocity + "Collider tag: " + collider.GetContact(0).normal);
+        rb.AddForce(reflection, ForceMode.Impulse);
     }
 
     public GameObject getShooter() { return shooter; }
