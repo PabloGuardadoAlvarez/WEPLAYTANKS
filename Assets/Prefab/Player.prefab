@@ -162,11 +162,7 @@ GameObject:
   - component: {fileID: 1504520386}
   m_Layer: 0
   m_Name: Player
-<<<<<<< HEAD
-  m_TagString: Player
-=======
   m_TagString: Untagged
->>>>>>> master
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,13 +239,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Size: {x: 1, y: 1.3, z: 1}
-  m_Center: {x: 0, y: 0.15, z: 0}
-=======
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
->>>>>>> master
 --- !u!54 &3060183584852396875
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -300,13 +291,9 @@ MonoBehaviour:
   explosionEffect: {fileID: 8740566774575217392, guid: 9abf9e5fed1444bcbacc44a3704586f1,
     type: 3}
   destroyEffectDuration: 2
-<<<<<<< HEAD
-  dieOverTime: 0
-=======
   heightExplosion: 0
   dieOverTime: 0
   isExplosion: 0
->>>>>>> master
 --- !u!114 &1504520386
 MonoBehaviour:
   m_ObjectHideFlags: 0

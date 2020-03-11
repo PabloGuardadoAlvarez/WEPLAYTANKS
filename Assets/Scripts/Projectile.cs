@@ -61,11 +61,8 @@ public class Projectile : MonoBehaviour
             if (bounceCount < maxBounce)
             {
                 bounceCount++;
-<<<<<<< HEAD
-=======
                 Bounce(collision.contacts[0].normal);
                 Debug.Log(collision.contacts[0].normal);
->>>>>>> master
             }
             else
             {
