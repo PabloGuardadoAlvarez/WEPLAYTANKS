@@ -7,11 +7,13 @@ public class Perishable : MonoBehaviour
     public int maxHealth = 1;
     public GameObject explosionEffect;
     public float destroyEffectDuration = 1.5f;
+    public float heightExplosion = 0f;
     [SerializeField]
     private bool dieOverTime = false;
     private float lifeTime = .5f;
     private string receivedDamageType;
     private bool isTrace = false;
+    public bool isExplosion = false;
     private GameObject target;
     int health;
     // Start is called before the first frame update
@@ -68,7 +70,15 @@ public class Perishable : MonoBehaviour
         if (health <= 0)
         {
             var explosioneff = Instantiate(explosionEffect);
-            explosioneff.transform.position = GetComponent<Transform>().position;
+            if (isExplosion)
+            {
+                Debug.Log("Entra");
+                explosioneff.transform.position = new Vector3(transform.position.x, transform.position.y + heightExplosion, transform.position.z);
+            }
+            else
+            {
+                explosioneff.transform.position = transform.position;
+            }
             Destroy(gameObject);
             if (destroyEffectDuration > 0)
             {
