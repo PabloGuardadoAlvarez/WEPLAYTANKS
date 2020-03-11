@@ -58,7 +58,6 @@ public class Projectile : MonoBehaviour
             if (bounceCount < maxBounce)
             {
                 bounceCount++;
-                ApplyBounce(collision);
             }
             else
             {
@@ -70,13 +69,6 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
-    }
-
-    void ApplyBounce(Collision collider)
-    {
-        Vector3 reflection = Vector3.Reflect(rb.velocity, collider.GetContact(0).normal);
-        Debug.Log("Angle: " + rb.velocity + "Collider tag: " + collider.GetContact(0).normal);
-        rb.AddForce(reflection, ForceMode.Impulse);
     }
 
     public GameObject getShooter() { return shooter; }
