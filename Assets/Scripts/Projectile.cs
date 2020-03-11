@@ -11,6 +11,9 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
     public int maxBounce = 1;
     private GameObject shooter;
+    public float minVelocity = 10f;
+
+    private Vector3 lastFrameVelocity;
 
     private int bounceCount = 0;
     // Start is called before the first frame update
@@ -34,16 +37,16 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        lastFrameVelocity = rb.velocity;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Perishable thisPerishable = this.GetComponent<Perishable>();
         Perishable otherPerishable = collision.gameObject.GetComponent<Perishable>();
-        if (otherPerishable)
+        if (otherPerishable && otherPerishable.name !="DWall")
         {
-            if(otherPerishable.name == "Player")
+            if (otherPerishable.name == "Player")
                 otherPerishable.doDamage(damage, "self");
             else
                 otherPerishable.doDamage(damage, "bullet");
@@ -56,12 +59,17 @@ public class Projectile : MonoBehaviour
         else
         {
             if (bounceCount < maxBounce)
+            {
                 bounceCount++;
+                Bounce(collision.contacts[0].normal);
+                Debug.Log(collision.contacts[0].normal);
+            }
             else
             {
                 transform.DetachChildren();
                 thisPerishable.killEntity();
-                if (shooter) {
+                if (shooter)
+                {
                     shooter.GetComponent<Turret>().addBullet();
                 }
             }
@@ -70,4 +78,13 @@ public class Projectile : MonoBehaviour
 
     public GameObject getShooter() { return shooter; }
     public void setShooter(GameObject shooter) { this.shooter = shooter; }
+
+    private void Bounce(Vector3 collisionNormal)
+    {
+        var speed = lastFrameVelocity.magnitude;
+        var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
+
+        Debug.Log("Out Direction: " + direction);
+        rb.velocity = direction * Mathf.Max(speed, minVelocity);
+    }
 }

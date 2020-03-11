@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1891625111687837372}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: -5.300001, y: 0.99, z: 16.622997}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   trace: {fileID: 1835127498850805970, guid: a64cd9bd7b7d647398458d397c374753, type: 3}
   damage: 1
   maxBounce: 1
+  minVelocity: 5
 --- !u!114 &-6683736727806549046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,4 +145,6 @@ MonoBehaviour:
   explosionEffect: {fileID: 8740566774575217392, guid: 8abdf98dd10b345a7bc1575adc9ea3f5,
     type: 3}
   destroyEffectDuration: 1.5
+  heightExplosion: 0
   dieOverTime: 0
+  isExplosion: 0

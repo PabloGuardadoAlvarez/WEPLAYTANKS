@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
@@ -59,10 +60,6 @@ public class InputHandler : MonoBehaviour
         {
             aim = new Vector3(aimJoystick.Horizontal, 0, aimJoystick.Vertical) * 10;
             turret.GetComponent<Turret>().aimTurret(aim);
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                turret.GetComponent<Turret>().doShot();
-            }
         }
     }
     public bool getIsPC() { return pcControl; }
