@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8740566774575217394}
   - component: {fileID: 8740566774575217393}
   m_Layer: 0
-  m_Name: DeathParticles
+  m_Name: DeathParticlesPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4766,8 +4766,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7082de8f2e9a44d8b8e9a49867f3c69b, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8df1b64f863f744a5968f460e8e84c67, type: 2}
+  - {fileID: 2100000, guid: 8df1b64f863f744a5968f460e8e84c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

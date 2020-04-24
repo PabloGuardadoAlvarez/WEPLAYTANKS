@@ -85,6 +85,7 @@ public class Projectile : MonoBehaviour
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
         Debug.Log("Out Direction: " + direction);
+        rb.transform.forward = direction;
         rb.velocity = direction * Mathf.Max(speed, minVelocity);
     }
 }

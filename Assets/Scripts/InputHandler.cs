@@ -18,7 +18,7 @@ public class InputHandler : MonoBehaviour
     {
         locomotor = GetComponent<Locomotor>();
         bomber = GetComponent<Bomber>();
-        turret = this.transform.GetChild(0).gameObject;
+        turret = this.transform.GetChild(2).gameObject;
         if (pcControl)
         {
             moveJoystick.gameObject.SetActive(false);

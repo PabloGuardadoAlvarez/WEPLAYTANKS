@@ -22,7 +22,7 @@ public class CanPathFind : MonoBehaviour
         path = new NavMeshPath();
         count = 0;
         changeStateToTrue();
-        tracking = transform.GetChild(0).gameObject.GetComponent<CanTrack>();
+        tracking = transform.GetChild(2).gameObject.GetComponent<CanTrack>();
     }
 
     // Update is called once per frame

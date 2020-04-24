@@ -40,6 +40,7 @@ public class Turret : MonoBehaviour
             //Instanciamos la bala y le damos velocidad
             var shot = Instantiate(bullet);
             shot.transform.position = gunMuzzle.transform.position;
+            shot.transform.forward = gunMuzzle.transform.forward;
             var bullet_rb = shot.GetComponent<Rigidbody>();
             bullet_rb.AddForce(transform.forward * bulletSpeed);
             shot.GetComponent<Projectile>().setShooter(this.gameObject);
