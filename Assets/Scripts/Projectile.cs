@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
@@ -52,7 +53,6 @@ public class Projectile : MonoBehaviour
                 otherPerishable.doDamage(damage, "bullet");
             if(shooter)
                 shooter.GetComponent<Turret>().addBullet();
-            transform.DetachChildren();
             thisPerishable.killEntity();
 
         }
@@ -60,13 +60,24 @@ public class Projectile : MonoBehaviour
         {
             if (bounceCount < maxBounce)
             {
-                bounceCount++;
-                Bounce(collision.contacts[0].normal);
-                Debug.Log(collision.contacts[0].normal);
+                Portal portal = collision.gameObject.GetComponent<Portal>();
+                if (portal)
+                {
+                    trace.GetComponent<Perishable>().setTarget(null);
+                    this.transform.position = portal.getLinkedPortal().GetComponent<Portal>().getSpawnLocation();
+                    Bounce(collision.GetContact(0).normal);
+                    Start();
+
+                }
+                else
+                {
+                    bounceCount++;
+                    Bounce(collision.contacts[0].normal);
+                }
+                Debug.Log(collision.GetContact(0).normal);
             }
             else
             {
-                transform.DetachChildren();
                 thisPerishable.killEntity();
                 if (shooter)
                 {
@@ -79,13 +90,13 @@ public class Projectile : MonoBehaviour
     public GameObject getShooter() { return shooter; }
     public void setShooter(GameObject shooter) { this.shooter = shooter; }
 
-    private void Bounce(Vector3 collisionNormal)
+    private Vector3 Bounce(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
-        Debug.Log("Out Direction: " + direction);
         rb.transform.forward = direction;
         rb.velocity = direction * Mathf.Max(speed, minVelocity);
+        return direction;
     }
 }

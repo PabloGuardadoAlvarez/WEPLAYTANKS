@@ -72,7 +72,6 @@ public class Perishable : MonoBehaviour
             var explosioneff = Instantiate(explosionEffect);
             if (isExplosion)
             {
-                Debug.Log("Entra");
                 explosioneff.transform.position = new Vector3(transform.position.x, transform.position.y + heightExplosion, transform.position.z);
             }
             else
