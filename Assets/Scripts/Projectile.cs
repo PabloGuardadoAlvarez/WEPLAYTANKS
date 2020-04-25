@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +14,7 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
     public int maxBounce = 1;
     private GameObject shooter;
+    private bool teleported = false;
     public float minVelocity = 10f;
 
     private Vector3 lastFrameVelocity;
@@ -61,20 +64,25 @@ public class Projectile : MonoBehaviour
             if (bounceCount < maxBounce)
             {
                 Portal portal = collision.gameObject.GetComponent<Portal>();
-                if (portal)
+                if (portal && !teleported)
                 {
-                    trace.GetComponent<Perishable>().setTarget(null);
-                    this.transform.position = portal.getLinkedPortal().GetComponent<Portal>().getSpawnLocation();
-                    Bounce(collision.GetContact(0).normal);
-                    Start();
 
+                    Portal otherPortal = portal.getLinkedPortal().GetComponent<Portal>();
+                    trace.GetComponent<Perishable>().setTarget(null);
+                    Vector3 bulletToPortal = transform.position - portal.transform.position;
+                    float rotationDiff = -Quaternion.Angle(portal.transform.rotation, otherPortal.transform.rotation);
+                    transform.Rotate(otherPortal.transform.up, rotationDiff);
+
+                    transform.position = otherPortal.getSpawnLocation();
+                    changeDirection(transform.forward);
+                    teleported = true;
+                    Start();
                 }
                 else
                 {
                     bounceCount++;
-                    Bounce(collision.contacts[0].normal);
+                    changeDirection(bounce(collision.GetContact(0).normal));
                 }
-                Debug.Log(collision.GetContact(0).normal);
             }
             else
             {
@@ -90,13 +98,18 @@ public class Projectile : MonoBehaviour
     public GameObject getShooter() { return shooter; }
     public void setShooter(GameObject shooter) { this.shooter = shooter; }
 
-    private Vector3 Bounce(Vector3 collisionNormal)
+    private void changeDirection(Vector3 newDirection)
     {
         var speed = lastFrameVelocity.magnitude;
+
+        rb.transform.forward = newDirection;
+        rb.velocity = newDirection * Mathf.Max(speed, minVelocity);
+    }
+
+    private Vector3 bounce(Vector3 collisionNormal)
+    {
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
-        rb.transform.forward = direction;
-        rb.velocity = direction * Mathf.Max(speed, minVelocity);
         return direction;
     }
 }

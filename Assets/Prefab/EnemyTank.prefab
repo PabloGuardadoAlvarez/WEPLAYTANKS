@@ -487,7 +487,7 @@ MonoBehaviour:
   numBullets: 3
   bulletsLeft: 0
   bulletSpeed: 250
-  bullet: {fileID: 1891625111687837372, guid: b5c7e0640288744ee9dc92e5fb566f04, type: 3}
+  bullet: {fileID: 667851582569882854, guid: 16ae50a9439d24152bbb5b778b277256, type: 3}
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
   gunMuzzle: {fileID: 4731014036263445259}
@@ -528,7 +528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731014036263445259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 80, z: 103.2}
+  m_LocalPosition: {x: 0, y: 80, z: 73.3}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 8814221942340584473}

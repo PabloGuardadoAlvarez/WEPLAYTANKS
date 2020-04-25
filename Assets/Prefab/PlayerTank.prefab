@@ -102,8 +102,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001625979740515293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 381.25, y: 74.375, z: 75.624985}
-  m_LocalScale: {x: 125, y: 125, z: 93.75001}
+  m_LocalPosition: {x: 0, y: 80, z: 73.3}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 3896710571626122447}
   m_RootOrder: 0
@@ -137,7 +137,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045026874565717521}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.95, y: 0.25, z: 1.09}
   m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_Children:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  explosionEffect: {fileID: 8740566774575217392, guid: 9abf9e5fed1444bcbacc44a3704586f1,
+  explosionEffect: {fileID: 8740566774575217392, guid: e665f7d95c3bd482c80fefcde1a1cf55,
     type: 3}
   destroyEffectDuration: 2
   heightExplosion: 0
@@ -730,8 +730,8 @@ MonoBehaviour:
   numBullets: 3
   bulletsLeft: 0
   bulletSpeed: 250
-  bullet: {fileID: 1891625111687837372, guid: b5c7e0640288744ee9dc92e5fb566f04, type: 3}
+  bullet: {fileID: 667851582569882854, guid: 16ae50a9439d24152bbb5b778b277256, type: 3}
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
-  gunMuzzle: {fileID: 0}
+  gunMuzzle: {fileID: 1001625979740515293}
   bullets: []
