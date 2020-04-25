@@ -14,7 +14,9 @@ public class Perishable : MonoBehaviour
     private string receivedDamageType;
     private bool isTrace = false;
     public bool isExplosion = false;
+    public bool isPlayer = false;
     private GameObject target;
+    public GameObject manager = null;
     int health;
     // Start is called before the first frame update
     void Awake()
@@ -69,6 +71,9 @@ public class Perishable : MonoBehaviour
         bool isDeath = false;
         if (health <= 0)
         {
+            if (manager != null) {
+                manager.GetComponent<GameManager>().death();
+            }
             var explosioneff = Instantiate(explosionEffect);
             if (isExplosion)
             {
@@ -102,4 +107,5 @@ public class Perishable : MonoBehaviour
 
     public GameObject getTarget() { return target; }
     public void setTarget(GameObject target) { this.target = target; }
+    public void setManager(GameObject manager) { this.manager = manager; }
 }
