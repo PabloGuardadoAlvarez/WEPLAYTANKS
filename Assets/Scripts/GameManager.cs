@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour
     public GameObject bullet;
     public GameObject restarMenu;
     public GameObject gamerOverMenu;
+    public GameObject nextLevelMenu;
     public Locomotor[] tanks;
     public GameObject[] players;
     public TextMeshProUGUI numberLivesText;
+    private int numberOfEnemies;
+    private int numberOfPlayers;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,21 +26,16 @@ public class GameManager : MonoBehaviour
                 tanks[i].gameObject.GetComponent<CanPathFind>().setPlayers(players);
             }
             else {
-
-                tanks[i].gameObject.GetComponent<Perishable>().setManager(this.gameObject);
-
+                numberOfPlayers++;
             }
+            tanks[i].gameObject.GetComponent<Perishable>().setManager(this.gameObject);
         }
         if (PlayerPrefs.GetInt("lives") == 0)
         {
             PlayerPrefs.SetInt("lives" ,3);
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(PlayerPrefs.GetInt("lives"));
+        numberOfEnemies = tanks.Length - numberOfPlayers;
     }
 
     public void RestartLevel()
@@ -48,6 +46,17 @@ public class GameManager : MonoBehaviour
     public void Restargame() {
 
         SceneManager.LoadScene(1); 
+    }
+
+    public void nextLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void enemyKill() {
+        numberOfEnemies--;
+        if (numberOfEnemies <= 0) {
+            nextLevelMenu.SetActive(true);
+        }
     }
 
 

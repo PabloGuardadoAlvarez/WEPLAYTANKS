@@ -71,9 +71,15 @@ public class Perishable : MonoBehaviour
         bool isDeath = false;
         if (health <= 0)
         {
-            if (manager != null) {
+            if (manager != null && isPlayer) {
                 manager.GetComponent<GameManager>().death();
             }
+
+            if (manager != null && !isPlayer)
+            {
+                manager.GetComponent<GameManager>().enemyKill();
+            }
+
             var explosioneff = Instantiate(explosionEffect);
             if (isExplosion)
             {
