@@ -14,28 +14,29 @@ public class GameManager : MonoBehaviour
     public GameObject[] players;
     public TextMeshProUGUI numberLivesText;
     private int numberOfEnemies;
-    private int numberOfPlayers;
     // Start is called before the first frame update
     void Start()
     {
         tanks = GameObject.FindObjectsOfType<Locomotor>();
         players = GameObject.FindGameObjectsWithTag("Player");
+
         for (int i = 0; i < tanks.Length; i++) {
             if (tanks[i].gameObject.tag != "Player")
             {
+                Debug.Log(players.Length);
                 tanks[i].gameObject.GetComponent<CanPathFind>().setPlayers(players);
+                tanks[i].transform.GetChild(2).GetComponent<CanTrack>().setTarget(players[0].gameObject);
             }
-            else {
-                numberOfPlayers++;
-            }
+
             tanks[i].gameObject.GetComponent<Perishable>().setManager(this.gameObject);
         }
+
         if (PlayerPrefs.GetInt("lives") == 0)
         {
             PlayerPrefs.SetInt("lives" ,3);
         }
 
-        numberOfEnemies = tanks.Length - numberOfPlayers;
+        numberOfEnemies = tanks.Length - players.Length;
     }
 
     public void RestartLevel()
