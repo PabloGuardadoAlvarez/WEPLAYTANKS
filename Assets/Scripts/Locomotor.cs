@@ -13,6 +13,7 @@ public class Locomotor : MonoBehaviour
     protected Rigidbody _rb;
     private InputHandler _ih;
     private TrailEffect trail;
+    public float distToGround = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,14 +58,14 @@ public class Locomotor : MonoBehaviour
         Vector3 inverseDirection = new Vector3(direction.x * -1, 0, direction.z * -1);
 
         float angleChecker = Vector3.Angle(direction, transform.forward);
-        if ((angleChecker >= 180 - rotationThreshold && angleChecker <= 180 + rotationThreshold) || 
+        if ((angleChecker >= 180 - rotationThreshold && angleChecker <= 180 + rotationThreshold) ||
             (angleChecker >= 0 - rotationThreshold && angleChecker <= 0 + rotationThreshold))
             canRotate = false;
         else
             canRotate = true;
 
-        if(canRotate)
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), rotationSpeed);
+        if (canRotate)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, rotationAngle, 0), rotationSpeed);
         else
         {
             if (direction.magnitude > 0 && speed < maxSpeed)
@@ -86,16 +87,19 @@ public class Locomotor : MonoBehaviour
     }
     private void ApplyLocomotionPC(Vector3 direction)
     {
-        transform.Rotate(new Vector3(0, direction.x, 0) * rotationSpeed);
-        if (direction.z > 0 || direction.z < 0)
-        {
-            _rb.velocity = transform.forward * direction.z * acceleration;
-            trail.setEmitter(true);
-        }
-        else
-        {
-            trail.setEmitter(false);
-        }
-
+            transform.Rotate(new Vector3(0, direction.x, 0) * rotationSpeed);
+            if (direction.z > 0 || direction.z < 0)
+            {
+                _rb.velocity = transform.forward * direction.z * acceleration;
+                trail.setEmitter(true);
+            }
+            else
+            {
+                trail.setEmitter(false);
+            }
+    }
+    public bool isGrounded()
+    {
+        return Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), Vector3.down, distToGround);
     }
 }

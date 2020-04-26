@@ -111,6 +111,15 @@ public class Perishable : MonoBehaviour
         setLifeTime(lifeTime);
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "DeathPlane")
+        {
+            killEntity();
+        }
+    }
+
     public GameObject getTarget() { return target; }
     public void setTarget(GameObject target) { this.target = target; }
     public void setManager(GameObject manager) { this.manager = manager; }

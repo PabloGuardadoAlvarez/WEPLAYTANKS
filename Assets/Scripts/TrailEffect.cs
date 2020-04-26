@@ -21,7 +21,7 @@ public class TrailEffect : MonoBehaviour
     {
         if(timeBtwSpawns <= 0 && emit)
         {
-            GameObject instance = (GameObject)Instantiate(trail, new Vector3(transform.position.x, transform.position.y + 0.06f, transform.position.z), transform.rotation);
+            GameObject instance = (GameObject)Instantiate(trail, new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z), transform.rotation);
             if(destroy)
                 Destroy(instance, destroyTime);
             timeBtwSpawns = startTimeBtwSpawns;

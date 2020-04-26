@@ -29,37 +29,46 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h, v;
-        if (!pcControl)
+        if (GetComponent<Locomotor>().isGrounded())
         {
-            h = moveJoystick.Horizontal;
-            v = moveJoystick.Vertical;
-        }
-        else
-        {
-            h = Input.GetAxisRaw("Horizontal");
-            v = Input.GetAxisRaw("Vertical");
-        }
-        locomotor.MoveTo(h, v);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bomber.SetBomb();
-        }
-
-        //mirar con el raton
-        if (pcControl)
-        {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            turret.GetComponent<Turret>().rotateTurret(ray);
-            if (Input.GetMouseButtonDown(0))
+            float h, v;
+            if (!pcControl)
             {
-                turret.GetComponent<Turret>().doShot();
+                h = moveJoystick.Horizontal;
+                v = moveJoystick.Vertical;
+            }
+            else
+            {
+                h = Input.GetAxisRaw("Horizontal");
+                v = Input.GetAxisRaw("Vertical");
+            }
+            locomotor.MoveTo(h, v);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                bomber.SetBomb();
+            }
+
+            //mirar con el raton
+            if (pcControl)
+            {
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                turret.GetComponent<Turret>().rotateTurret(ray);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    turret.GetComponent<Turret>().doShot();
+                }
+            }
+            else
+            {
+                aim = new Vector3(aimJoystick.Horizontal, 0, aimJoystick.Vertical) * 10;
+                turret.GetComponent<Turret>().aimTurret(aim);
             }
         }
         else
         {
-            aim = new Vector3(aimJoystick.Horizontal, 0, aimJoystick.Vertical) * 10;
-            turret.GetComponent<Turret>().aimTurret(aim);
+            GetComponent<Rigidbody>().freezeRotation = false;
+            GetComponent<TrailEffect>().enabled = false;
+            this.enabled = false;
         }
     }
     public bool getIsPC() { return pcControl; }
