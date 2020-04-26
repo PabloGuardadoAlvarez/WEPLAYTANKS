@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17817587, g: 0.22309017, b: 0.30516243, a: 1}
+  m_IndirectSpecularColor: {r: 0.17817557, g: 0.22308975, b: 0.3051617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5420,8 +5420,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057052599}
-  - component: {fileID: 2057052602}
-  - component: {fileID: 2057052601}
   - component: {fileID: 2057052600}
   m_Layer: 0
   m_Name: DeathPlane
@@ -5438,7 +5436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057052598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.5, y: -1.5, z: 7}
+  m_LocalPosition: {x: 10.5, y: -5, z: 7}
   m_LocalScale: {x: 2.84, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 852878798}
@@ -5452,57 +5450,11 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057052598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2057052601
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057052598}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &2057052602
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057052598}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2079983413
 GameObject:
@@ -5616,7 +5568,7 @@ PrefabInstance:
     - target: {fileID: 4097140686685412354, guid: 5959c0763bd1547db952d502c85dcdeb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.269
       objectReference: {fileID: 0}
     - target: {fileID: 4097140686685412354, guid: 5959c0763bd1547db952d502c85dcdeb,
         type: 3}
@@ -5733,7 +5685,7 @@ PrefabInstance:
     - target: {fileID: 9052590880855627689, guid: 5959c0763bd1547db952d502c85dcdeb,
         type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9052590880855627689, guid: 5959c0763bd1547db952d502c85dcdeb,
         type: 3}

@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
     {
         Perishable thisPerishable = this.GetComponent<Perishable>();
         Perishable otherPerishable = collision.gameObject.GetComponent<Perishable>();
-        if (otherPerishable && otherPerishable.name !="DWall")
+        if (otherPerishable && !otherPerishable.onlyBomb)
         {
             if (otherPerishable.name == "Player")
                 otherPerishable.doDamage(damage, "self");

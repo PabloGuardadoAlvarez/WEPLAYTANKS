@@ -12,11 +12,12 @@ public class Perishable : MonoBehaviour
     private bool dieOverTime = false;
     private float lifeTime = .5f;
     private string receivedDamageType;
-    private bool isTrace = false;
+    public bool isTrace = false;
     public bool isExplosion = false;
-    public bool isPlayer = false;
+    private bool isPlayer = false;
+    public bool onlyBomb;
     private GameObject target;
-    public GameObject manager = null;
+    private GameObject manager = null;
     int health;
     // Start is called before the first frame update
     void Awake()
@@ -54,7 +55,12 @@ public class Perishable : MonoBehaviour
 
     public int doDamage(int damage, string damageType)
     {
-        health -= damage;
+        if(damageType == "bullet" && !onlyBomb)
+            health -= damage;
+        else
+        {
+            health -= damage;
+        }
         receivedDamageType = damageType;
         isDeath();
         return health;
@@ -81,6 +87,7 @@ public class Perishable : MonoBehaviour
             }
 
             var explosioneff = Instantiate(explosionEffect);
+
             if (isExplosion)
             {
                 explosioneff.transform.position = new Vector3(transform.position.x, transform.position.y + heightExplosion, transform.position.z);
@@ -89,7 +96,9 @@ public class Perishable : MonoBehaviour
             {
                 explosioneff.transform.position = transform.position;
             }
+
             Destroy(gameObject);
+
             if (destroyEffectDuration > 0)
             {
                 Destroy(explosioneff, destroyEffectDuration);
@@ -119,7 +128,7 @@ public class Perishable : MonoBehaviour
             killEntity();
         }
     }
-
+    public void setPlayer(bool set) { isPlayer = set; }
     public GameObject getTarget() { return target; }
     public void setTarget(GameObject target) { this.target = target; }
     public void setManager(GameObject manager) { this.manager = manager; }

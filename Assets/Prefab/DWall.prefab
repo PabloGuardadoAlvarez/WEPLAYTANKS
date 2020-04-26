@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5730018188893589976}
   - component: {fileID: 5730018188893589975}
   - component: {fileID: 5730018188893589978}
+  - component: {fileID: 3723663965421485742}
   m_Layer: 0
   m_Name: DWall
   m_TagString: Wall
@@ -87,7 +88,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5730018188893589973}
-  m_Material: {fileID: 13400000, guid: 7586b779c4f48457c96ed3749e7baaae, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -111,4 +112,22 @@ MonoBehaviour:
   destroyEffectDuration: 1.5
   heightExplosion: 0
   dieOverTime: 0
+  isTrace: 0
   isExplosion: 0
+  onlyBomb: 1
+--- !u!208 &3723663965421485742
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730018188893589973}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

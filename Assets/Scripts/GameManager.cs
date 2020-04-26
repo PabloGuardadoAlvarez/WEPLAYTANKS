@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
                 tanks[i].gameObject.GetComponent<CanPathFind>().setPlayers(players);
                 tanks[i].transform.GetChild(2).GetComponent<CanTrack>().setTarget(players[0].gameObject);
             }
+            else
+            {
+                tanks[i].GetComponent<Perishable>().setPlayer(true);
+            }
 
             tanks[i].gameObject.GetComponent<Perishable>().setManager(this.gameObject);
         }
@@ -50,7 +54,12 @@ public class GameManager : MonoBehaviour
     }
 
     public void nextLevel() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void enemyKill() {
