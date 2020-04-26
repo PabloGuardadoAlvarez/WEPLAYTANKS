@@ -8,17 +8,17 @@ public class Locomotor : MonoBehaviour
     public float rotationThreshold = 1f;
     [SerializeField]
     private float speed = 0;
-    protected Transform transform;
     [SerializeField]
     private bool canRotate = true;
     protected Rigidbody _rb;
     private InputHandler _ih;
+    private TrailEffect trail;
     // Start is called before the first frame update
     void Start()
     {
-        transform = GetComponent<Transform>();
         _rb = this.GetComponent<Rigidbody>();
         _ih = this.GetComponent<InputHandler>();
+        trail = GetComponent<TrailEffect>();
     }
 
     // Update is called once per frame
@@ -29,10 +29,12 @@ public class Locomotor : MonoBehaviour
     public void MoveTo(Vector3 direction)
     {
         var directionNormalized = direction.normalized;
-        if(_ih && _ih.getIsPC())
+        if (_ih && _ih.getIsPC())
             ApplyLocomotionPC(directionNormalized);
         else
+        {
             ApplyLocomotion(directionNormalized);
+        }
     }
 
     public void MoveTo(float x, float z)
@@ -66,19 +68,34 @@ public class Locomotor : MonoBehaviour
         else
         {
             if (direction.magnitude > 0 && speed < maxSpeed)
+            {
                 speed += acceleration;
+                trail.setEmitter(true);
+            }
             else if (direction.magnitude < 1 && speed > 0)
+            {
                 speed -= acceleration;
+                trail.setEmitter(false);
+            }
             else if (speed < 0)
+            {
                 speed = 0;
+            }
             _rb.velocity = direction * speed;
         }
     }
     private void ApplyLocomotionPC(Vector3 direction)
     {
         transform.Rotate(new Vector3(0, direction.x, 0) * rotationSpeed);
-        if(direction.z > 0 || direction.z < 0)
+        if (direction.z > 0 || direction.z < 0)
+        {
             _rb.velocity = transform.forward * direction.z * acceleration;
+            trail.setEmitter(true);
+        }
+        else
+        {
+            trail.setEmitter(false);
+        }
 
     }
 }

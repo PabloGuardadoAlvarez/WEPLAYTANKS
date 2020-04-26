@@ -28,7 +28,7 @@ public class CanTrack : MonoBehaviour
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
                 if (hit.collider.gameObject.tag == target.gameObject.tag)
                 {
-                    transform.parent.GetComponent<CanPathFind>().canContinue = false;
+                    transform.parent.GetComponent<CanPathFind>().setState(false);
                     if (canShot)
                     {
                         StartCoroutine(shot());
@@ -36,7 +36,7 @@ public class CanTrack : MonoBehaviour
                 }
                 else
                 {
-                    transform.parent.GetComponent<CanPathFind>().canContinue = true;
+                    transform.parent.GetComponent<CanPathFind>().setState(true);
                     StopCoroutine(shot());
                 }
             }

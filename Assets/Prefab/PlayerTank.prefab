@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 9052590880855627692}
   - component: {fileID: 9052590880855627693}
   - component: {fileID: 9052590880855627694}
+  - component: {fileID: 6576816066063816071}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -226,6 +227,8 @@ MonoBehaviour:
   heightExplosion: 0
   dieOverTime: 0
   isExplosion: 0
+  isPlayer: 0
+  manager: {fileID: 0}
 --- !u!114 &9052590880855627694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,12 +241,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1576d18fc2846a4284e217d1cc5cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 3
+  acceleration: 2
+  maxSpeed: 2
   rotationSpeed: 4
   rotationThreshold: 0
   speed: 0
   canRotate: 1
+--- !u!114 &6576816066063816071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045026874565717521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c85b1b39b6ec3d488132404fc8f7d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trail: {fileID: 2992580383842450118, guid: 7296ac227a8b06f4ba83631471b59c85, type: 3}
+  timeBtwSpawns: 0.1
+  startTimeBtwSpawns: 0.1
+  destroy: 0
+  destroyTime: 6
 --- !u!1 &6621338621245646616
 GameObject:
   m_ObjectHideFlags: 0

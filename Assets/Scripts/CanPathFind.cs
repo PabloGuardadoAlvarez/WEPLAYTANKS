@@ -13,7 +13,7 @@ public class CanPathFind : MonoBehaviour
     private CanTrack tracking;
     private int count;
     private Vector3 vectorFinal;
-    public bool canContinue;
+    private bool canContinue = true;
 
     // Start is called before the first frame update
 
@@ -21,7 +21,6 @@ public class CanPathFind : MonoBehaviour
     {
         path = new NavMeshPath();
         count = 0;
-        changeStateToTrue();
         tracking = transform.GetChild(2).gameObject.GetComponent<CanTrack>();
     }
 
@@ -38,6 +37,7 @@ public class CanPathFind : MonoBehaviour
         }
         else if (target != null && canContinue)
         {
+            GetComponent<TrailEffect>().setEmitter(true);
             NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, path);
             vectorFinal = path.corners[count] - transform.position;
 
@@ -52,16 +52,15 @@ public class CanPathFind : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            GetComponent<TrailEffect>().setEmitter(false);
+        }
     }
 
-    public void changeStateToFalse() {
-        canContinue = false;
-    }
+    public void setState(bool state) { canContinue = state; }
 
-    public void changeStateToTrue()
-    {
-        canContinue = true;
-    }
+    public bool getState() { return canContinue; }
 
     public void setPlayers(GameObject[] players) { this.players = players; }
     public GameObject[] getPlayers() { return players; }
