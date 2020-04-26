@@ -10,7 +10,6 @@ public class CanPathFind : MonoBehaviour
     private GameObject[] players;
     private GameObject target;
     private NavMeshPath path;
-    private CanTrack tracking;
     private int count;
     private Vector3 vectorFinal;
     private bool canContinue = true;
@@ -21,21 +20,18 @@ public class CanPathFind : MonoBehaviour
     {
         path = new NavMeshPath();
         count = 0;
+<<<<<<< HEAD
         tracking = transform.GetChild(2).gameObject.GetComponent<CanTrack>();
+=======
+        changeStateToTrue();
+>>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-        {
-            if (players.Length > 0)
-            {
-                target = players[0];
-                tracking.setTarget(target);
-            }
-        }
-        else if (target != null && canContinue)
+
+        if (target != null && canContinue)
         {
             GetComponent<TrailEffect>().setEmitter(true);
             NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, path);

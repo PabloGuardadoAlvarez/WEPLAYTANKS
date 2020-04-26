@@ -23,12 +23,18 @@ public class CanTrack : MonoBehaviour
             RaycastHit hit;
 
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + .65f, transform.position.z), transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
+                Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + .65f, transform.position.z), transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
                 if (hit.collider.gameObject.tag == target.gameObject.tag)
                 {
+<<<<<<< HEAD
                     transform.parent.GetComponent<CanPathFind>().setState(false);
+=======
+                    if (transform.parent.GetComponent<CanPathFind>().enabled == true) {
+                        transform.parent.GetComponent<CanPathFind>().canContinue = false;
+                    }
+>>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
                     if (canShot)
                     {
                         StartCoroutine(shot());
@@ -36,7 +42,14 @@ public class CanTrack : MonoBehaviour
                 }
                 else
                 {
+<<<<<<< HEAD
                     transform.parent.GetComponent<CanPathFind>().setState(true);
+=======
+                    if (transform.parent.GetComponent<CanPathFind>().enabled == true)
+                    {
+                        transform.parent.GetComponent<CanPathFind>().canContinue = true;
+                    }
+>>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
                     StopCoroutine(shot());
                 }
             }
@@ -45,6 +58,7 @@ public class CanTrack : MonoBehaviour
 
     IEnumerator shot()
     {
+
         gameObject.GetComponent<Turret>().doShot();
         canShot = false;
         yield return new WaitForSeconds(2f);
