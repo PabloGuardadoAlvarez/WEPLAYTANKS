@@ -28,13 +28,9 @@ public class CanTrack : MonoBehaviour
                 Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + .65f, transform.position.z), transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
                 if (hit.collider.gameObject.tag == target.gameObject.tag)
                 {
-<<<<<<< HEAD
-                    transform.parent.GetComponent<CanPathFind>().setState(false);
-=======
-                    if (transform.parent.GetComponent<CanPathFind>().enabled == true) {
-                        transform.parent.GetComponent<CanPathFind>().canContinue = false;
+                    if (transform.parent.GetComponent<CanPathFind>().enabled == false) {
+                        transform.parent.GetComponent<CanPathFind>().setState(false);
                     }
->>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
                     if (canShot)
                     {
                         StartCoroutine(shot());
@@ -42,14 +38,10 @@ public class CanTrack : MonoBehaviour
                 }
                 else
                 {
-<<<<<<< HEAD
-                    transform.parent.GetComponent<CanPathFind>().setState(true);
-=======
                     if (transform.parent.GetComponent<CanPathFind>().enabled == true)
                     {
-                        transform.parent.GetComponent<CanPathFind>().canContinue = true;
+                        transform.parent.GetComponent<CanPathFind>().setState(true);
                     }
->>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
                     StopCoroutine(shot());
                 }
             }

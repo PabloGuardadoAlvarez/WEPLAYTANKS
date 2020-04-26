@@ -26,7 +26,7 @@ public class TrailEffect : MonoBehaviour
                 Destroy(instance, destroyTime);
             timeBtwSpawns = startTimeBtwSpawns;
         }
-        else
+        else if(emit)
         {
             timeBtwSpawns -= Time.deltaTime;
         }

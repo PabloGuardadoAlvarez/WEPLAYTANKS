@@ -20,16 +20,13 @@ public class CanPathFind : MonoBehaviour
     {
         path = new NavMeshPath();
         count = 0;
-<<<<<<< HEAD
-        tracking = transform.GetChild(2).gameObject.GetComponent<CanTrack>();
-=======
-        changeStateToTrue();
->>>>>>> 3ba3b496087660cd8d9faa0bca3bfb4a9fbcddb6
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null)
+            target = players[0];
 
         if (target != null && canContinue)
         {
