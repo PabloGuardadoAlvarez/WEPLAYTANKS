@@ -50,15 +50,24 @@ public class GameManager : MonoBehaviour
 
     public void Restargame() {
 
-        SceneManager.LoadScene(1); 
+        SceneManager.LoadScene(2);
+        PlayerPrefs.SetInt("lives", 3);
+        PlayerPrefs.SetInt("levelAt",2);
+
+    }
+
+    public void loadLevelSelectorScreen() {
+        SceneManager.LoadScene(1);
     }
 
     public void nextLevel() {
-        if(SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings)
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("levelAt", SceneManager.GetActiveScene().buildIndex + 1);
+        }
         else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 
